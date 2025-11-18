@@ -2,13 +2,28 @@
   "$schema": "https://turbo.build/schema.v2.json",
   "extends": ["//"],
   "tasks": {
+    "build": {
+      "env": [
+        "ALLOWED_DOMAIN_PATTERN",
+        "APL",
+        "APP_API_BASE_URL",
+        "APP_IFRAME_BASE_URL",
+        "NEXT_PUBLIC_SALEOR_API_URL",
+        "SECRET_KEY",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN",
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_REGION",
+        "DYNAMODB_MAIN_TABLE_NAME"
+      ]
+    },
     "deploy": {
       "env": [
         "ALLOWED_DOMAIN_PATTERN",
         "APL",
         "APP_API_BASE_URL",
         "APP_IFRAME_BASE_URL",
-        "MANIFEST_APP_ID",
         "MANIFEST_APP_ID",
         "NEXT_PUBLIC_SENTRY_DSN",
         "SECRET_KEY",
