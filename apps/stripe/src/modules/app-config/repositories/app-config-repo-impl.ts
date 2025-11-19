@@ -1,7 +1,7 @@
-// Fix 1: Change import path for AppConfigRepository and SaleorApp/Env aliases
-
-import { EncryptedMetadataManager, AppConfigRepository } from "@saleor/app-sdk/settings-manager";
-import { saleorApp } from "@/lib/saleor-app";
+// Fix 1: Correct Import Paths. AppConfigRepository is in a specific submodule.
+import { EncryptedMetadataManager } from "@saleor/app-sdk/settings-manager";
+import { AppConfigRepository } from "@saleor/app-sdk/settings-manager/app-config-repository"; // Corrected specific submodule path
+import { saleorApp } from "@/lib/saleor-app"; 
 import { env } from "@/lib/env";
 
 /*
@@ -11,8 +11,9 @@ import { env } from "@/lib/env";
 
 // Initialize the metadata manager to handle encryption and persistence
 const metadataManager = new EncryptedMetadataManager({
-  // The app's authorization and client are taken from the main saleorApp instance
-  appId: saleorApp.manifest.id,
+  // Fix 2: Use optional chaining and a fallback ID to prevent the 
+  // TypeError: Cannot read properties of undefined (reading 'id') during Next.js build.
+  appId: saleorApp.manifest?.id || "fallback-app-id", 
   apl: saleorApp.apl,
   // The SECRET_KEY from your Vercel environment variables is used for encryption
   encryptionKey: env.SECRET_KEY, 
