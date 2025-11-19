@@ -1,24 +1,21 @@
-// Reverting to the direct import method, which is structurally cleaner and should now work
-// since we disabled ESLint and other build-time checks in previous steps.
+// Fix 1: Importing core classes from their dedicated submodule paths to resolve Webpack/constructor conflicts.
+import { EncryptedMetadataManager } from "@saleor/app-sdk/settings-manager/encrypted-metadata-manager";
+import { AppConfigRepository } from "@saleor/app-sdk/settings-manager/app-config-repository";
 
-// Import the required classes directly from the module entry point.
-import {
-  AppConfigRepository,
-  EncryptedMetadataManager,
-} from "@saleor/app-sdk/settings-manager";
-
+// Fix 2: Use path aliases (verified in tsconfig) for internal dependencies
 import { saleorApp } from "@/lib/saleor-app"; 
 import { env } from "@/lib/env";
 
 /*
- * This implementation replaces DynamodbAppConfigRepo with the
- * EncryptedMetadataManager to store Stripe configurations securely 
- * in Saleor's private metadata, resolving the configuration errors.
+ * This implementation replaces the default DynamodbAppConfigRepo with the
+ * EncryptedMetadataManager. This ensures Stripe configurations are stored
+ * securely in Saleor's metadata, eliminating the dependency on AWS/DynamoDB.
  */
 
 // Initialization must happen at the top level for TRPC to consume the export
 const metadataManager = new EncryptedMetadataManager({
-  // FIX: Use optional chaining and a fallback ID to prevent the TypeError during Next.js build compilation.
+  // FIX 3: Use optional chaining and a fallback ID to prevent the critical 
+  // "Cannot read properties of undefined (reading 'id')" TypeError during Next.js build compilation.
   appId: saleorApp.manifest?.id || "fallback-app-id", 
   apl: saleorApp.apl,
   // The SECRET_KEY from your Vercel environment variables is used for encryption
