@@ -1,8 +1,8 @@
-// Replace the previous imports entirely:
-import { EncryptedMetadataManager } from "@saleor/app-sdk/settings-manager";
-import { AppConfigRepository } from "@saleor/app-sdk/settings-manager/app-config-repository";
-import { saleorApp } from "../../../../lib/saleor-app";
-import { env } from "../../../../lib/env";
+// Fix 1: Change import path for AppConfigRepository and SaleorApp/Env aliases
+
+import { EncryptedMetadataManager, AppConfigRepository } from "@saleor/app-sdk/settings-manager";
+import { saleorApp } from "@/lib/saleor-app";
+import { env } from "@/lib/env";
 
 /*
  * This implementation uses Saleor's Encrypted Metadata Manager to store
