@@ -12,7 +12,7 @@ type Args = {
 
 const Layout = ({ children }: Args) => (
     // @ts-expect-error Async Server Component
-    <RootLayout config={config} importMap={importMap}>
+    <RootLayout config={config} importMap={importMap} serverFunction={importMap}>
         {children}
     </RootLayout>
 )
