@@ -1,35 +1,26 @@
 import { RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
-import configPromise from '@/payload.config'
+import config from '@/payload.config'
 import './custom.css'
 import { importMap as rawImportMap } from '../importMap'
 
-const Layout = ({ children }: any) => {
-    // ULTRA-PRECISE DIAGNOSTIC PROXY
-    // This proxy will catch exactly when and where Next.js tries to serialize a function
-    const diagnosticImportMap = new Proxy(rawImportMap, {
-        get(target, prop) {
-            const value = Reflect.get(target, prop)
+const Layout = async ({ children, params }: any) => {
+    // Next 15 requires awaiting params
+    const resolvedParams = await params
 
-            // If Next.js or React tries to access a function during serialization
-            if (typeof value === 'function') {
-                console.log(`--- SERIALIZATION ATTEMPT DETECTED ---`)
-                console.log(`Property accessed: ${String(prop)}`)
-                try {
-                    // This will show us the call stack leading to the serialization
-                    throw new Error('Serialization Trace')
-                } catch (e: any) {
-                    console.log('Stack Trace:', e.stack)
-                }
-                console.log(`-------------------------------------`)
-            }
-            return value
-        }
-    })
+    // CONFIDENT FIX: Prevent Next.js 15 from trying to serialize functions
+    // We provide a toJSON method so Next.js sees a safe version of the object,
+    // but Payload's server-side logic still sees the raw functions.
+    const importMap = {
+        ...rawImportMap,
+        toJSON() {
+            return Object.fromEntries(Object.keys(rawImportMap).map((key) => [key, null]))
+        },
+    }
 
     return (
         /* @ts-ignore */
-        <RootLayout config={configPromise} importMap={diagnosticImportMap} serverFunction={diagnosticImportMap}>
+        <RootLayout config={config} importMap={importMap} params={resolvedParams}>
             {children}
         </RootLayout>
     )
