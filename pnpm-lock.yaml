@@ -844,7 +844,7 @@ importers:
         version: 8.4.14
       pretty-quick:
         specifier: ^3.1.3
-        version: 3.1.3(prettier@3.0.3)
+        version: 3.1.3(prettier@3.5.3)
       tsx:
         specifier: 'catalog:'
         version: 4.19.3
@@ -8220,6 +8220,9 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   csv-generate@3.4.3:
     resolution: {integrity: sha512-w/T+rqR0vwvHqWs/1ZyMDWtHHSJaN06klRqJXBEpDJaM/+dZkso0OKh1VcuuYvK3XM53KysVNq8Ko/epCK8wOw==}
@@ -15770,7 +15773,7 @@ snapshots:
       '@emotion/memoize': 0.9.0
       '@emotion/unitless': 0.10.0
       '@emotion/utils': 1.4.2
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@emotion/sheet@1.4.0': {}
 
@@ -19414,7 +19417,7 @@ snapshots:
 
   '@types/react@19.0.0':
     dependencies:
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@types/scheduler@0.16.3': {}
 
@@ -19601,7 +19604,7 @@ snapshots:
       chalk: 4.1.2
       css-what: 6.1.0
       cssesc: 3.0.0
-      csstype: 3.1.3
+      csstype: 3.2.3
       deep-object-diff: 1.1.9
       deepmerge: 4.3.1
       media-query-parser: 2.0.2
@@ -21088,6 +21091,8 @@ snapshots:
 
   csstype@3.1.3: {}
 
+  csstype@3.2.3: {}
+
   csv-generate@3.4.3: {}
 
   csv-parse@4.16.3: {}
@@ -21287,7 +21292,7 @@ snapshots:
   dom-helpers@5.2.1:
     dependencies:
       '@babel/runtime': 7.25.6
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   dom-serializer@1.4.1:
     dependencies:
@@ -25032,7 +25037,7 @@ snapshots:
     dependencies:
       parse-ms: 4.0.0
 
-  pretty-quick@3.1.3(prettier@3.0.3):
+  pretty-quick@3.1.3(prettier@3.5.3):
     dependencies:
       chalk: 3.0.0
       execa: 4.1.0
@@ -25040,7 +25045,7 @@ snapshots:
       ignore: 5.2.4
       mri: 1.2.0
       multimatch: 4.0.0
-      prettier: 3.0.3
+      prettier: 3.5.3
 
   prismjs@1.30.0: {}
 
