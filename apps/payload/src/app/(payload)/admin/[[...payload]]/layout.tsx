@@ -5,12 +5,9 @@ import './custom.css'
 import { importMap as rawImportMap } from '../importMap'
 
 const Layout = async ({ children, params }: any) => {
-    // Next 15 requires awaiting params
     const resolvedParams = await params
 
-    // CONFIDENT FIX: Prevent Next.js 15 from trying to serialize functions
-    // We provide a toJSON method so Next.js sees a safe version of the object,
-    // but Payload's server-side logic still sees the raw functions.
+    // Ensure importMap is serializable for Next.js 15 but functional for Payload
     const importMap = {
         ...rawImportMap,
         toJSON() {
@@ -20,7 +17,12 @@ const Layout = async ({ children, params }: any) => {
 
     return (
         /* @ts-ignore */
-        <RootLayout config={config} importMap={importMap} params={resolvedParams}>
+        <RootLayout
+            config={config}
+            importMap={importMap}
+            serverFunction={importMap}
+            params={resolvedParams}
+        >
             {children}
         </RootLayout>
     )

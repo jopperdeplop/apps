@@ -10,7 +10,6 @@ const Page = async ({ params, searchParams }: any) => {
     const resolvedParams = await params
     const resolvedSearchParams = await searchParams
 
-    // CONFIDENT FIX: Prevent Next.js 15 from trying to serialize functions
     const importMap = {
         ...rawImportMap,
         toJSON() {
@@ -24,7 +23,8 @@ const Page = async ({ params, searchParams }: any) => {
             config,
             params: resolvedParams,
             searchParams: resolvedSearchParams,
-            importMap
+            importMap,
+            serverFunction: importMap
         })
     )
 }
