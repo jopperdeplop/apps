@@ -23,8 +23,7 @@ const Page = async ({ params, searchParams }: any) => {
             config,
             params: resolvedParams,
             searchParams: resolvedSearchParams,
-            importMap,
-            serverFunction: importMap
+            importMap
         })
     )
 }

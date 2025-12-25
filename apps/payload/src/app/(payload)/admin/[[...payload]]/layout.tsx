@@ -4,9 +4,7 @@ import config from '@/payload.config'
 import './custom.css'
 import { importMap as rawImportMap } from '../importMap'
 
-const Layout = async ({ children, params }: any) => {
-    const resolvedParams = await params
-
+const Layout = async ({ children }: any) => {
     // Ensure importMap is serializable for Next.js 15 but functional for Payload
     const importMap = {
         ...rawImportMap,
@@ -20,8 +18,7 @@ const Layout = async ({ children, params }: any) => {
         <RootLayout
             config={config}
             importMap={importMap}
-            serverFunction={importMap}
-            params={resolvedParams}
+            serverFunction={importMap as any}
         >
             {children}
         </RootLayout>
