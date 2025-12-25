@@ -10,7 +10,6 @@
     "ENV",
     "GITHUB_SHA",
     "NEXT_RUNTIME",
-    "NEXT_RUNTIME",
     "NODE_ENV",
     "OTEL_ACCESS_TOKEN",
     "OTEL_ENABLED",
@@ -25,11 +24,7 @@
     "VERCEL_ENV",
     "VERCEL_GIT_COMMIT_SHA",
     "VERCEL_URL",
-    "VERCEL",
-    "DATABASE_URL",
-    "POSTGRES_URL",
-    "PAYLOAD_SECRET",
-    "BLOB_READ_WRITE_TOKEN"
+    "VERCEL"
   ],
   "tasks": {
     "topo": {
