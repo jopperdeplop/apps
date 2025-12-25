@@ -7,9 +7,6 @@ export const generateMetadata = ({ params, searchParams }: any) => {
 }
 
 const Page = ({ params, searchParams }: any) => {
-    console.log('--- PAYLOAD ADMIN PAGE DEBUG ---')
-    console.log('Calling RootPage with ImportMap keys:', importMap ? Object.keys(importMap).length : 0)
-
     return (
         /* @ts-ignore */
         RootPage({ config, params, searchParams, importMap })
