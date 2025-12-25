@@ -57,14 +57,16 @@ export default buildConfig({
         },
     ],
     editor: lexicalEditor({}),
-    serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
+    serverURL: process.env.NEXT_PUBLIC_SERVER_URL || (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : ''),
     secret: process.env.PAYLOAD_SECRET || 'REPLACE_WITH_SECURE_SECRET',
+    cors: [process.env.NEXT_PUBLIC_SERVER_URL, 'https://dashboard.saleor.io', 'https://*.saleor.cloud'].filter(Boolean) as string[],
+    csrf: [process.env.NEXT_PUBLIC_SERVER_URL, 'https://dashboard.saleor.io', 'https://*.saleor.cloud'].filter(Boolean) as string[],
     typescript: {
         outputFile: path.resolve(dirname, 'payload-types.ts'),
     },
     db: postgresAdapter({
         pool: {
-            connectionString: process.env.DATABASE_URL || '',
+            connectionString: process.env.DATABASE_URL || process.env.POSTGRES_URL || '',
         },
     }),
     plugins: [

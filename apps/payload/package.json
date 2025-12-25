@@ -16,6 +16,7 @@
         "@payloadcms/next": "3.69.0",
         "@payloadcms/richtext-lexical": "3.69.0",
         "@payloadcms/storage-vercel-blob": "3.69.0",
+        "@saleor/app-sdk": "catalog:",
         "@saleor/apps-shared": "workspace:*",
         "graphql": "catalog:",
         "next": "catalog:",
