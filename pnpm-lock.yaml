@@ -1084,17 +1084,20 @@ importers:
   apps/payload:
     dependencies:
       '@payloadcms/db-postgres':
-        specifier: ^3.11.0
+        specifier: 3.69.0
         version: 3.69.0(@opentelemetry/api@1.9.0)(payload@3.69.0(graphql@16.7.1)(typescript@5.8.2))
       '@payloadcms/next':
-        specifier: ^3.11.0
+        specifier: 3.69.0
         version: 3.69.0(@types/react@19.0.0)(graphql@16.7.1)(monaco-editor@0.47.0)(next@15.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4))(payload@3.69.0(graphql@16.7.1)(typescript@5.8.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.8.2)
       '@payloadcms/richtext-lexical':
-        specifier: ^3.11.0
+        specifier: 3.69.0
         version: 3.69.0(@faceless-ui/modal@3.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@faceless-ui/scroll-info@2.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@payloadcms/next@3.69.0(@types/react@19.0.0)(graphql@16.7.1)(monaco-editor@0.47.0)(next@15.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4))(payload@3.69.0(graphql@16.7.1)(typescript@5.8.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.8.2))(@types/react@19.0.0)(monaco-editor@0.47.0)(next@15.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4))(payload@3.69.0(graphql@16.7.1)(typescript@5.8.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.8.2)(yjs@13.6.28)
       '@payloadcms/storage-vercel-blob':
         specifier: 3.69.0
         version: 3.69.0(@types/react@19.0.0)(monaco-editor@0.47.0)(next@15.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4))(payload@3.69.0(graphql@16.7.1)(typescript@5.8.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.8.2)
+      '@saleor/app-sdk':
+        specifier: 'catalog:'
+        version: 1.3.0(graphql@16.7.1)(next@15.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@saleor/apps-shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -1105,7 +1108,7 @@ importers:
         specifier: 15.2.8
         version: 15.2.8(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4)
       payload:
-        specifier: ^3.11.0
+        specifier: 3.69.0
         version: 3.69.0(graphql@16.7.1)(typescript@5.8.2)
       react:
         specifier: 18.2.0
@@ -11377,9 +11380,6 @@ packages:
   pg-protocol@1.10.3:
     resolution: {integrity: sha512-6DIBgBQaTKDJyxnXaLiLR8wBpQQcGWuAESkRBX/t6OwA8YsqP+iVSiond2EDy6Y/dsGk8rh/jtax3js5NeV7JQ==}
 
-  pg-protocol@1.8.0:
-    resolution: {integrity: sha512-jvuYlEkL03NRvOoyoRktBK7+qU5kOvlAwvmrH8sr3wbLrOdVWsRxQfz8mMy9sZFsqJ1hEWNfdWKI4SAmoL+j7g==}
-
   pg-types@2.2.0:
     resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
     engines: {node: '>=4'}
@@ -18586,6 +18586,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@saleor/app-sdk@1.3.0(graphql@16.7.1)(next@15.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/semantic-conventions': 1.30.0
+      debug: 4.4.0
+      graphql: 16.7.1
+      jose: 5.10.0
+      next: 15.2.8(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.77.4)
+      raw-body: 3.0.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - supports-color
+
   '@saleor/eslint-plugin-saleor-app@0.2.0(eslint@9.23.0(jiti@2.4.2))':
     dependencies:
       '@changesets/cli': 2.28.1
@@ -19379,18 +19393,18 @@ snapshots:
 
   '@types/pg-pool@2.0.6':
     dependencies:
-      '@types/pg': 8.6.1
+      '@types/pg': 8.10.2
 
   '@types/pg@8.10.2':
     dependencies:
       '@types/node': 22.13.10
-      pg-protocol: 1.8.0
+      pg-protocol: 1.10.3
       pg-types: 4.1.0
 
   '@types/pg@8.6.1':
     dependencies:
       '@types/node': 22.13.10
-      pg-protocol: 1.8.0
+      pg-protocol: 1.10.3
       pg-types: 2.2.0
 
   '@types/prop-types@15.7.5': {}
@@ -24844,8 +24858,6 @@ snapshots:
 
   pg-protocol@1.10.3: {}
 
-  pg-protocol@1.8.0: {}
-
   pg-types@2.2.0:
     dependencies:
       pg-int8: 1.0.1
@@ -25223,7 +25235,7 @@ snapshots:
       '@babel/runtime': 7.25.6
       '@emotion/cache': 11.14.0
       '@emotion/react': 11.14.0(@types/react@19.0.0)(react@18.2.0)
-      '@floating-ui/dom': 1.5.3
+      '@floating-ui/dom': 1.7.4
       '@types/react-transition-group': 4.4.12(@types/react@19.0.0)
       memoize-one: 6.0.0
       prop-types: 15.8.1
@@ -26372,14 +26384,14 @@ snapshots:
 
   tsx@4.20.3:
     dependencies:
-      esbuild: 0.25.2
+      esbuild: 0.25.12
       get-tsconfig: 4.10.0
     optionalDependencies:
       fsevents: 2.3.3
 
   tsx@4.20.6:
     dependencies:
-      esbuild: 0.25.2
+      esbuild: 0.25.12
       get-tsconfig: 4.10.0
     optionalDependencies:
       fsevents: 2.3.3
