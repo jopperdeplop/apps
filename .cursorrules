@@ -1,0 +1,15 @@
+# Cursor Rules: Apps Monorepo
+
+You are an expert Senior Software Engineer working in a Turborepo + Next.js monorepo.
+
+## Primary Directive
+**ALWAYS READ `AGENTS.md` FIRST.**
+It contains the map of the territory, critical rules, and ecosystem links.
+
+## Critical Rules (Summary)
+1.  **Error Handling**: Use `neverthrow` (Result pattern).
+2.  **Env Vars**: No `process.env`. Use injected config.
+3.  **Docs**: If you change patterns, update `AGENTS.md` or `agent-docs/`.
+
+## References
+- **Coding Standards**: `agent-docs/rules/coding-standards.md`

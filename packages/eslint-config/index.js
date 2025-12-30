@@ -13,6 +13,7 @@ import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import turboPlugin from "eslint-plugin-turbo";
 import globals from "globals";
 import tseslint from "typescript-eslint";
+import boundariesPlugin from "eslint-plugin-boundaries";
 
 /** @type {import('eslint').Linter.Config[]} */
 export const config = [
@@ -62,13 +63,45 @@ export const config = [
       "@next/next": nextPlugin,
       "@stylistic": stylisticPlugin,
       "@saleor/saleor-app": saleorPlugin,
+      "@saleor/saleor-app": saleorPlugin,
       "react-naming-convention": reactNamingConventionPlugin,
+      boundaries: boundariesPlugin,
+    },
+    settings: {
+      "boundaries/include": ["src/**/*"],
+      "boundaries/elements": [
+        { type: "domain", pattern: "src/modules/**/use-case.ts" },
+        { type: "domain", pattern: "src/modules/**/domain/**/*" },
+        { type: "infra", pattern: "src/modules/**/repositories/*-impl.ts" },
+        { type: "infra", pattern: "src/modules/**/infrastructure/**/*" },
+        { type: "app", pattern: "src/app/**/*" },
+        { type: "app", pattern: "src/pages/**/*" },
+      ],
     },
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...tseslint.configs.eslintRecommended.rules,
       "max-params": "off",
       "@typescript-eslint/max-params": ["error", { max: 3 }],
+      // Boundaries: Clean Architecture Guardrails
+      "boundaries/element-types": [
+        "error",
+        {
+          default: "allow",
+          rules: [
+            {
+              from: "domain",
+              disallow: ["infra", "app"],
+              message: "Domain code (UseCases) cannot import Infrastructure or App code",
+            },
+            {
+              from: "infra",
+              disallow: ["app"],
+              message: "Infrastructure code cannot import App (Next.js) code",
+            },
+          ],
+        },
+      ],
       "turbo/no-undeclared-env-vars": "error",
       "import/order": "off", // to avoid conflicts with simple-import-sort
       "import/first": "error",
