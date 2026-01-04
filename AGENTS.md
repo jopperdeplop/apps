@@ -33,6 +33,9 @@
 - **Automated Guardrails**:
   - **Architecture**: `eslint-plugin-boundaries` enforces `UseCase` (Domain) cannot import `RepositoryImpl` (Infrastructure).
   - **Linting**: Run `pnpm lint` to verify architecture compliance.
+- **Roadmap (Multi-Channel)**:
+  - This ecosystem is moving towards a 20-channel Eurozone setup with automated translation (Gemini) and geo-detection routing.
+  - Coordinate with `saleor-app-template` for background tasks and `storefront` for routing changes.
 - **Documentation Maintenance**: If you add new major tech, change the build process, or discover a repeated "gotcha", YOU MUST update this file (`AGENTS.md`) to reflect the new state. **If you find yourself struggling, fix the docs for the next agent.**
 
 ## 3. Map of the Territory
